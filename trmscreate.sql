@@ -96,6 +96,16 @@ CREATE TABLE REQUEST
     DateTimeSubmitted TIMESTAMP NOT NULL,
     EventLocation_ID NUMBER NOT NULL,
     GradingFormat_ID NUMBER NOT NULL,
+    EventType_ID NUMBER NOT NULL,
+    Description VARCHAR2(2047),
+    Cost NUMBER NOT NULL,
+    WorkTimeMissed NUMBER NOT NULL,
+    AttachmentPath VARCHAR2(255),
+    FinalTimestamp TIMESTAMP,
+    FinalGrade VARCHAR2(5), --used a varchar in case of any oddities resulting in grades that are not char, 5 should hold pass, fail, percentages, and point values up to 99999.
+    SupervisorApproval CHAR check (SupervisorApproval in (0,1, NULL)),--a null value represents not having been approved or disapproved yet, char is necessary because oracle didn't feel like supporting booleans
+    DepHeadApproval CHAR check (DepHeadApproval in (0,1, NULL)),
+    BCoordinatorApproval CHAR check (BCoordinatorApproval in (0,1, NULL)),
     CONSTRAINT PK_REQUEST_ID PRIMARY KEY (Request_ID)
 );
 
@@ -107,6 +117,9 @@ FOREIGN KEY (EventLocation_ID) REFERENCES LOCATION (Location_ID)  ;
 
 ALTER TABLE Request ADD CONSTRAINT FK_GradingFormat_ID
 FOREIGN KEY (GradingFormat_ID) REFERENCES GRADINGFORMAT (FORMAT_ID)  ;
+
+ALTER TABLE Request ADD CONSTRAINT FK_EventType_ID
+FOREIGN KEY (EventType_ID) REFERENCES EVENTTYPE (Type_ID)  ;
 
 CREATE SEQUENCE req_seq START WITH 1 CACHE 20;
 CREATE OR REPLACE TRIGGER req_keys 
@@ -129,3 +142,5 @@ BEGIN
   FROM   dual;
 END;
 /
+
+commit;
