@@ -4,7 +4,7 @@ import java.util.Date;
 public class RequestForm implements Serializable
 {
 	/**
-	 * RequestForm is a bean to store froms for reimbursement requests.
+	 * RequestForm is a bean to store forms for reimbursement requests.
 	 */
 	private static final long serialVersionUID = -5475718354903135081L;
 	int requestID;
@@ -20,6 +20,13 @@ public class RequestForm implements Serializable
 	Date finalDate;
 	String finalGrade;
 	boolean SupervisorApproval;
+	String denialReason;
+	public String getDenialReason() {
+		return denialReason;
+	}
+	public void setDenialReason(String denialReason) {
+		this.denialReason = denialReason;
+	}
 	boolean depHeadApproval;
 	boolean bCoordinatorApproval;
 	

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="86E1CE6F-7161-6811-E289-98037FF540AF" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="EVENTTYPE">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>EVENTTYPE</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TYPE_ID" id="4B475363-05C4-A241-17CA-FA98D159AB3D">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EVENTTYPE</sourceObjSchema>
+<sourceObjName>TYPE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPENAME" id="FAD1BD90-77E6-ACAA-CC7F-4DCA3DB373A1">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EVENTTYPE</sourceObjSchema>
+<sourceObjName>TYPENAME</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>63 BYTE</dataTypeSize>
+<ownDataTypeParameters>63 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="51DEAA1D-13D8-BDBB-4F58-2B6B14D88C21" name="PK_TYPE_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_TYPE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B475363-05C4-A241-17CA-FA98D159AB3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BB109BCB-4636-0B79-D2D9-3B716B3D8B6E" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="PK_TYPE_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_TYPE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B475363-05C4-A241-17CA-FA98D159AB3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -22,5 +22,5 @@ public class RequestHandler
 	//get employee's completed forms
 	//get employee's incomplete forms
 	//submit a form
-	//retrieve a password
+	//retrieve employee record
 }

@@ -1,0 +1,323 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1A4C4263-5FD3-DD23-044D-370A4ED0A709" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="REQUEST">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>REQUEST</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REQUEST_ID" id="310EBDED-3285-A143-62A5-6E03D6E7924D">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>REQUEST_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REQUESTER_ID" id="E201B89D-B21A-E9C5-7FAF-1B03D41A2730">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>REQUESTER_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D030A18-5F01-9A6C-669D-0B4AD2608075" referredColumn="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</associations>
+</Column>
+<Column name="DATETIMESUBMITTED" id="59407F8A-08D5-264A-1CAD-A7401E499A89">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>DATETIMESUBMITTED</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTLOCATION_ID" id="DD5E6EE7-D4B4-9E49-8413-CC5C0D9147FD">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>EVENTLOCATION_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="36139524-E858-ADE5-FF5A-085D11A16CF8" referredColumn="E4847461-7EA0-8812-8FD7-480FC4D551CC"/>
+</associations>
+</Column>
+<Column name="GRADINGFORMAT_ID" id="C61F74D5-D5C9-14D1-52F6-BBBA44FC67DB">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>GRADINGFORMAT_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2914F35E-3117-6EC5-C57B-CBD0AD7A2528" referredColumn="C51FA210-8239-6036-4E86-0039566E434F"/>
+</associations>
+</Column>
+<Column name="EVENTTYPE_ID" id="79345F5A-59B6-7ACA-473B-EE297639DF60">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>EVENTTYPE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="63BBA850-A3E4-D1F8-F2B8-0971F2B152FC" referredColumn="4B475363-05C4-A241-17CA-FA98D159AB3D"/>
+</associations>
+</Column>
+<Column name="DESCRIPTION" id="DFFBEA56-79CF-30F5-AA15-20ADDEE4963B">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2047 BYTE</dataTypeSize>
+<ownDataTypeParameters>2047 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COST" id="200D0DEB-9FAC-2D66-0C8D-270B4EB5C5D9">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>COST</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WORKTIMEMISSED" id="971C2049-9B9D-D6D8-63DD-60FD1DAE06C1">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>WORKTIMEMISSED</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ATTACHMENTPATH" id="E47E9537-219E-6B0A-000D-CA5BCF23E2C5">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>ATTACHMENTPATH</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FINALTIMESTAMP" id="02A52AC0-2473-4AA4-839A-D823494B6FEF">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>FINALTIMESTAMP</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FINALGRADE" id="C1829481-E29E-6FE8-F570-AFEF90D3DA1A">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>FINALGRADE</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 BYTE</dataTypeSize>
+<ownDataTypeParameters>5 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUPERVISORAPPROVAL" id="21CB374F-8C32-2EEE-5D15-15958A2046DE">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>SUPERVISORAPPROVAL</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<constraintName>SYS_C005146</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="0" description=""/>
+<valueDef value="1" description=""/>
+<valueDef value="NULL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPHEADAPPROVAL" id="33120031-0898-907C-6244-95A04E53796D">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>DEPHEADAPPROVAL</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<constraintName>SYS_C005147</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="0" description=""/>
+<valueDef value="1" description=""/>
+<valueDef value="NULL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BCOORDINATORAPPROVAL" id="F487092D-D814-B352-3F68-FE63F6090B95">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>REQUEST</sourceObjSchema>
+<sourceObjName>BCOORDINATORAPPROVAL</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<constraintName>SYS_C005148</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="0" description=""/>
+<valueDef value="1" description=""/>
+<valueDef value="NULL" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9534E576-29C0-DFAB-C651-0DC9AECD2DA1" name="PK_REQUEST_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_REQUEST_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="310EBDED-3285-A143-62A5-6E03D6E7924D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B1A8655F-9A88-6BC6-B708-6AB5878469C7" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="PK_REQUEST_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_REQUEST_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="310EBDED-3285-A143-62A5-6E03D6E7924D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="73BC7971-08D3-7041-91AD-9CDD65E19141" name="FK_EVENTLOCATION_ID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD5E6EE7-D4B4-9E49-8413-CC5C0D9147FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A15B6A30-0B48-2EBA-D39D-848DDDFBEE6D" name="FK_EVENTTYPE_ID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79345F5A-59B6-7ACA-473B-EE297639DF60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E79C1A12-125F-608D-434F-0275F3C3A057" name="FK_GRADINGFORMAT_ID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C61F74D5-D5C9-14D1-52F6-BBBA44FC67DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C362BAF-DC89-F5B9-063A-C44C1925242C" name="FK_REQUESTERID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E201B89D-B21A-E9C5-7FAF-1B03D41A2730"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

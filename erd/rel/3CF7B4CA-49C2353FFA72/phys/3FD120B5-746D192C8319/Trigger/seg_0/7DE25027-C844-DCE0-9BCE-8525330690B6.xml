@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="FORM_KEYS" directorySegmentName="seg_0" id="7DE25027-C844-DCE0-9BCE-8525330690B6">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>FORM_KEYS</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<actions>INSERT</actions>
+<body>BEGIN&lt;br/&gt;  SELECT form_seq.NEXTVAL&lt;br/&gt;  INTO   :new.Format_ID&lt;br/&gt;  FROM   dual;&lt;br/&gt;END;&lt;br/&gt;</body>
+<triggerTime>BEFORE</triggerTime>
+<owner>0684E62C-780B-8247-5210-113ECF1B09F4</owner>
+<table>575CB8E9-5DCE-4F74-128D-8DB35F849E02</table>
+</TriggerOraclev10g>

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89393574-D979-3FAE-BE05-9598F54DAA12" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="LOCATION">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>LOCATION</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LOCATION_ID" id="E4847461-7EA0-8812-8FD7-480FC4D551CC">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>LOCATION</sourceObjSchema>
+<sourceObjName>LOCATION_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_NAME" id="48FAA124-C884-9F85-143C-DC31B0CC562B">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>LOCATION</sourceObjSchema>
+<sourceObjName>LOCATION_NAME</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>127 BYTE</dataTypeSize>
+<ownDataTypeParameters>127 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BEA46BEB-2C4D-1E06-5F32-6556C016592C" name="PK_LOCATION_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_LOCATION_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E4847461-7EA0-8812-8FD7-480FC4D551CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F635A04-6EF2-A14F-3B21-F26E2E3ACB49" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="PK_LOCATION_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_LOCATION_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E4847461-7EA0-8812-8FD7-480FC4D551CC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="63BBA850-A3E4-D1F8-F2B8-0971F2B152FC" containerWithKeyObject="1A4C4263-5FD3-DD23-044D-370A4ED0A709" localFKIndex="A15B6A30-0B48-2EBA-D39D-848DDDFBEE6D" name="FK_EVENTTYPE_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>FK_EVENTTYPE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<referredTableLongName>COOPERCUMMINGS6.EVENTTYPE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>86E1CE6F-7161-6811-E289-98037FF540AF</referredTableID>
+<keyObject>51DEAA1D-13D8-BDBB-4F58-2B6B14D88C21</keyObject>
+<referredKeyID>51DEAA1D-13D8-BDBB-4F58-2B6B14D88C21</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TYPE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

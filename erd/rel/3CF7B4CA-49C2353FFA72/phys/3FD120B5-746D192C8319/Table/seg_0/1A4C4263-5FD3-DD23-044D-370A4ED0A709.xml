@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="REQUEST" directorySegmentName="seg_0" id="1A4C4263-5FD3-DD23-044D-370A4ED0A709">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<schemaObject>6B57B52A-0A4E-6F82-39A0-2C4098E87AA4</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>0BDCD1D1-43F6-A7B9-F06A-200E40D3A7A3</segment>
+<tableSpace>3444BF0D-1862-3047-6AA0-256F50BDA13E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FINALTIMESTAMP" id="02A52AC0-2473-4AA4-839A-D823494B6FEF">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COST" id="200D0DEB-9FAC-2D66-0C8D-270B4EB5C5D9">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SUPERVISORAPPROVAL" id="21CB374F-8C32-2EEE-5D15-15958A2046DE">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQUEST_ID" id="310EBDED-3285-A143-62A5-6E03D6E7924D">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPHEADAPPROVAL" id="33120031-0898-907C-6244-95A04E53796D">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DATETIMESUBMITTED" id="59407F8A-08D5-264A-1CAD-A7401E499A89">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EVENTTYPE_ID" id="79345F5A-59B6-7ACA-473B-EE297639DF60">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WORKTIMEMISSED" id="971C2049-9B9D-D6D8-63DD-60FD1DAE06C1">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FINALGRADE" id="C1829481-E29E-6FE8-F570-AFEF90D3DA1A">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADINGFORMAT_ID" id="C61F74D5-D5C9-14D1-52F6-BBBA44FC67DB">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EVENTLOCATION_ID" id="DD5E6EE7-D4B4-9E49-8413-CC5C0D9147FD">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRIPTION" id="DFFBEA56-79CF-30F5-AA15-20ADDEE4963B">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REQUESTER_ID" id="E201B89D-B21A-E9C5-7FAF-1B03D41A2730">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ATTACHMENTPATH" id="E47E9537-219E-6B0A-000D-CA5BCF23E2C5">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BCOORDINATORAPPROVAL" id="F487092D-D814-B352-3F68-FE63F6090B95">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_REQUEST_ID" id="B1A8655F-9A88-6BC6-B708-6AB5878469C7">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<schemaObject>6B57B52A-0A4E-6F82-39A0-2C4098E87AA4</schemaObject>
+<segment>F4CE3EED-7225-570E-D10A-DD1B64E715C0</segment>
+<tableSpace>3444BF0D-1862-3047-6AA0-256F50BDA13E</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_REQUESTERID" id="1C362BAF-DC89-F5B9-063A-C44C1925242C">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_EVENTLOCATION_ID" id="73BC7971-08D3-7041-91AD-9CDD65E19141">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_EVENTTYPE_ID" id="A15B6A30-0B48-2EBA-D39D-848DDDFBEE6D">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_GRADINGFORMAT_ID" id="E79C1A12-125F-608D-434F-0275F3C3A057">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_REQUEST_ID" id="9534E576-29C0-DFAB-C651-0DC9AECD2DA1">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<segment>F4CE3EED-7225-570E-D10A-DD1B64E715C0</segment>
+<tableSpace>3444BF0D-1862-3047-6AA0-256F50BDA13E</tableSpace>
+<existingIndex>B1A8655F-9A88-6BC6-B708-6AB5878469C7</existingIndex>
+<indexSegment>F4CE3EED-7225-570E-D10A-DD1B64E715C0</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

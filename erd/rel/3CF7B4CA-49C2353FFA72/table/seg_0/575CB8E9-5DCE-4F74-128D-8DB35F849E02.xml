@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="575CB8E9-5DCE-4F74-128D-8DB35F849E02" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="GRADINGFORMAT">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>GRADINGFORMAT</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FORMAT_ID" id="C51FA210-8239-6036-4E86-0039566E434F">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>GRADINGFORMAT</sourceObjSchema>
+<sourceObjName>FORMAT_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FORMATNAME" id="E3F67830-8D4D-4FD9-EB2C-1546BD00E024">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>GRADINGFORMAT</sourceObjSchema>
+<sourceObjName>FORMATNAME</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>63 BYTE</dataTypeSize>
+<ownDataTypeParameters>63 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA70A916-2D64-D839-F1DB-D9088BD405C1" name="PK_FORMATID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_FORMATID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C51FA210-8239-6036-4E86-0039566E434F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="507C24F6-4A9F-4FDD-172F-E3EA2A3D7F9A" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="PK_FORMATID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_FORMATID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C51FA210-8239-6036-4E86-0039566E434F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

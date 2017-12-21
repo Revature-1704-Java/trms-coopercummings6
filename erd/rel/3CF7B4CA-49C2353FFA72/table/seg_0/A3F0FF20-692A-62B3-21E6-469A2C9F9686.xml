@@ -1,0 +1,179 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3F0FF20-692A-62B3-21E6-469A2C9F9686" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="EMPLOYEE">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>EMPLOYEE</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:56 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EMPLOYEE_ID" id="C65FD95A-88A1-FC0B-A94A-A59A8B337524">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>EMPLOYEE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMPLOYEENAME" id="69714214-A93F-E8C7-1840-E0FB630B6027">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>EMPLOYEENAME</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLAIMSAMOUNTREMAINING" id="30703313-A946-E16E-95F7-FDE9518A2941">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>CLAIMSAMOUNTREMAINING</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>1000.0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="03067EE1-F22F-E531-5D4C-103646C5F1A5">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>PASSWORD</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>31 BYTE</dataTypeSize>
+<ownDataTypeParameters>31 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUPERVISORID" id="83E5DE95-EFA4-8602-12B2-239B7B5BD31E">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>SUPERVISORID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="52F4476B-24E4-BFD9-5723-C9C8C0880B4E" referredColumn="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</associations>
+</Column>
+<Column name="DEPHEADID" id="669686C7-C4E2-097A-221D-7C55F3E014D1">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>DEPHEADID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B4AEEF6F-3BC3-0829-FB85-8C425EB86274" referredColumn="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</associations>
+</Column>
+<Column name="BCOORDINATORID" id="59A4F5B5-CC26-48FB-EBC1-C4202AE38BF5">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>EMPLOYEE</sourceObjSchema>
+<sourceObjName>BCOORDINATORID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:57 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77D0D5F9-8D5B-9FC3-BBD6-C00536A60011" referredColumn="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="63E9343B-DBCE-9EE9-F964-0DC4FB9672A5" name="PK_EMPLOYEE_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_EMPLOYEE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:59 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC28A4A8-357A-5C89-C8CC-E372BDF8CF0D" schemaObject="6B57B52A-0A4E-6F82-39A0-2C4098E87AA4" name="PK_EMPLOYEE_ID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>PK_EMPLOYEE_ID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:33:58 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C65FD95A-88A1-FC0B-A94A-A59A8B337524"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D0AFFAE6-3CF0-4E50-CD32-7E1B711B44B9" name="FK_BCOORDINATORID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59A4F5B5-CC26-48FB-EBC1-C4202AE38BF5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D6B54D5-CD3E-7F5F-45E5-3F0C6863F7B8" name="FK_DEPHEADID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="669686C7-C4E2-097A-221D-7C55F3E014D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6BA52CA3-C2A3-29EF-BDDB-783DC9EE2D1E" name="FK_SUPERVISORID">
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83E5DE95-EFA4-8602-12B2-239B7B5BD31E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

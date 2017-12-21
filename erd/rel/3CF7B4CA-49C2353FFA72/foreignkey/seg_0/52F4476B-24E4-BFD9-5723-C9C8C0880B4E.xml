@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="52F4476B-24E4-BFD9-5723-C9C8C0880B4E" containerWithKeyObject="A3F0FF20-692A-62B3-21E6-469A2C9F9686" localFKIndex="6BA52CA3-C2A3-29EF-BDDB-783DC9EE2D1E" name="FK_SUPERVISORID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>FK_SUPERVISORID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<referredTableLongName>COOPERCUMMINGS6.EMPLOYEE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3F0FF20-692A-62B3-21E6-469A2C9F9686</referredTableID>
+<keyObject>63E9343B-DBCE-9EE9-F964-0DC4FB9672A5</keyObject>
+<referredKeyID>63E9343B-DBCE-9EE9-F964-0DC4FB9672A5</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

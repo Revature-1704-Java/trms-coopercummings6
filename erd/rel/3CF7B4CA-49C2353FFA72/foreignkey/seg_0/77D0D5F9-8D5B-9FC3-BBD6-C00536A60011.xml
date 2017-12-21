@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="77D0D5F9-8D5B-9FC3-BBD6-C00536A60011" containerWithKeyObject="A3F0FF20-692A-62B3-21E6-469A2C9F9686" localFKIndex="D0AFFAE6-3CF0-4E50-CD32-7E1B711B44B9" name="FK_BCOORDINATORID">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>FK_BCOORDINATORID</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<referredTableLongName>COOPERCUMMINGS6.EMPLOYEE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3F0FF20-692A-62B3-21E6-469A2C9F9686</referredTableID>
+<keyObject>63E9343B-DBCE-9EE9-F964-0DC4FB9672A5</keyObject>
+<referredKeyID>63E9343B-DBCE-9EE9-F964-0DC4FB9672A5</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

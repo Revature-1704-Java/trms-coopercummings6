@@ -4,6 +4,7 @@ CREATE TABLE EMPLOYEE
     Employee_ID NUMBER NOT NULL,
     EmployeeName VARCHAR2(255) NOT NULL, --people can have varying numbers of names, so one field is more universally compatible than multiple
     ClaimsAmountRemaining Number DEFAULT 1000.0 NOT NULL,
+    eMail VARCHAR(255),
     Password VARCHAR2(31) NOT NULL,
     SupervisorID NUMBER,        --id of supervisor who approves this employee's requests
     DepHeadID NUMBER,           --id of department head who approves this employee's requests
@@ -104,6 +105,7 @@ CREATE TABLE REQUEST
     FinalTimestamp TIMESTAMP,
     FinalGrade VARCHAR2(5), --used a varchar in case of any oddities resulting in grades that are not char, 5 should hold pass, fail, percentages, and point values up to 99999.
     SupervisorApproval CHAR check (SupervisorApproval in (0,1, NULL)),--a null value represents not having been approved or disapproved yet, char is necessary because oracle didn't feel like supporting booleans
+    DenialReason VARCHAR(2047),
     DepHeadApproval CHAR check (DepHeadApproval in (0,1, NULL)),
     BCoordinatorApproval CHAR check (BCoordinatorApproval in (0,1, NULL)),
     CONSTRAINT PK_REQUEST_ID PRIMARY KEY (Request_ID)

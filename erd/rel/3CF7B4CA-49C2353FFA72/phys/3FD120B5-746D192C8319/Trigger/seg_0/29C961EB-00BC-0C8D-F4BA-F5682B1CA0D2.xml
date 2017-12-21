@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="LOC_KEYS" directorySegmentName="seg_0" id="29C961EB-00BC-0C8D-F4BA-F5682B1CA0D2">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>LOC_KEYS</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<actions>INSERT</actions>
+<body>BEGIN&lt;br/&gt;  SELECT loc_seq.NEXTVAL&lt;br/&gt;  INTO   :new.Location_ID&lt;br/&gt;  FROM   dual;&lt;br/&gt;END;&lt;br/&gt;</body>
+<triggerTime>BEFORE</triggerTime>
+<owner>0684E62C-780B-8247-5210-113ECF1B09F4</owner>
+<table>89393574-D979-3FAE-BE05-9598F54DAA12</table>
+</TriggerOraclev10g>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="REQ_SUB_TIMESTAMP" directorySegmentName="seg_0" id="04C889E7-80D5-C438-AC42-9183BAD79492">
+<sourceConnName>trmsinstance</sourceConnName>
+<sourceObjSchema>COOPERCUMMINGS6</sourceObjSchema>
+<sourceObjName>REQ_SUB_TIMESTAMP</sourceObjName>
+<createdBy>coope</createdBy>
+<createdTime>2017-12-21 19:34:00 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<actions>INSERT</actions>
+<body>BEGIN&lt;br/&gt;  SELECT SYSTIMESTAMP&lt;br/&gt;  INTO   :new.DateTimeSubmitted&lt;br/&gt;  FROM   dual;&lt;br/&gt;END;&lt;br/&gt;</body>
+<triggerTime>BEFORE</triggerTime>
+<owner>0684E62C-780B-8247-5210-113ECF1B09F4</owner>
+<table>1A4C4263-5FD3-DD23-044D-370A4ED0A709</table>
+</TriggerOraclev10g>
