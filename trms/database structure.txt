@@ -6,7 +6,7 @@ information associated with request:
 RequestID(PK)
 RequesterID (FK)
 DateSubmitted
-TimeSubmitter
+TimeSubmitted
 LocationOfEvent	(ID maybe?)
 description
 cost
