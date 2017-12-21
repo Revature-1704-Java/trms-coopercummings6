@@ -1,0 +1,10 @@
+buisness requirements, as many as possible
+aws rds database if possible
+stored procedures in database
+DAOs, factories, singletons
+basic OOP.
+ERD database design
+junit testing
+documentation or logging if possible
+maven project
+documentation
