@@ -1,3 +1,22 @@
+CREATE TABLE EMPLOYEETYPE
+(
+    EmployeeType_ID NUMBER NOT NULL,
+    EmployeeTypeTitle VARCHAR (127),
+    CONSTRAINT PK_EMPLOYEETYPE_ID PRIMARY KEY (EmployeeType_ID)
+);
+CREATE SEQUENCE emptype_seq START WITH 1 CACHE 20;
+
+CREATE OR REPLACE TRIGGER emptype_keys 
+BEFORE INSERT ON EMPLOYEETYPE
+FOR EACH ROW
+
+BEGIN
+  SELECT emptype_seq.NEXTVAL
+  INTO   :new.EmployeeType_ID
+  FROM   dual;
+END;
+/
+
 -- Code creating employee table and the constraints that can be done with just employee table
 CREATE TABLE EMPLOYEE
 (
@@ -9,6 +28,7 @@ CREATE TABLE EMPLOYEE
     SupervisorID NUMBER,        --id of supervisor who approves this employee's requests
     DepHeadID NUMBER,           --id of department head who approves this employee's requests
     BCoordinatorID NUMBER,      --id of benefits coordinator who approves this employee's requests
+    EmployeeType_ID NUMBER NOT NULL,
     CONSTRAINT PK_EMPLOYEE_ID PRIMARY KEY (Employee_ID)
 );
 
@@ -34,12 +54,16 @@ FOREIGN KEY (DepHeadID) REFERENCES Employee (Employee_ID)  ;
 ALTER TABLE Employee ADD CONSTRAINT FK_BCoordinatorID
 FOREIGN KEY (BCoordinatorID) REFERENCES Employee (Employee_ID)  ;
 
+ALTER TABLE Employee ADD CONSTRAINT FK_EmployeeType_ID
+FOREIGN KEY (EmployeeType_ID) REFERENCES EmployeeType (EmployeeType_ID)  ;
+
 
 --creation of grading format table
 CREATE TABLE GRADINGFORMAT
 (
     Format_ID NUMBER NOT NULL,
     FormatName VARCHAR2(63),
+    PassingGrade VARCHAR(5),
     CONSTRAINT PK_FORMATID PRIMARY KEY (FORMAT_ID)
 );
 CREATE SEQUENCE form_seq START WITH 1 CACHE 20;
@@ -58,6 +82,7 @@ CREATE TABLE EVENTTYPE
 (
     Type_ID NUMBER NOT NULL,
     TypeName VARCHAR2(63),
+    PercentReimbursement NUMBER,
     CONSTRAINT PK_Type_ID PRIMARY KEY (Type_ID)
 );
 CREATE SEQUENCE type_seq START WITH 1 CACHE 20;
@@ -89,6 +114,23 @@ BEGIN
 END;
 /
 
+CREATE TABLE ATTACHMENT
+(
+    Attachement_ID NUMBER NOT NULL,
+    AttachmentPath VARCHAR2(127),
+    CONSTRAINT PK_Attachment_ID PRIMARY KEY (Attachment_ID)
+);
+CREATE SEQUENCE att_seq START WITH 1 CACHE 20;
+CREATE OR REPLACE TRIGGER att_keys 
+BEFORE INSERT ON LOCATION
+FOR EACH ROW
+BEGIN
+  SELECT att_seq.NEXTVAL
+  INTO   :new.Attachent_ID
+  FROM   dual;
+END;
+/
+
 --Request table that holds information from each request
 CREATE TABLE REQUEST 
 (
@@ -101,7 +143,7 @@ CREATE TABLE REQUEST
     Description VARCHAR2(2047),
     Cost NUMBER NOT NULL,
     WorkTimeMissed NUMBER NOT NULL,
-    AttachmentPath VARCHAR2(255),
+    Attachment_ID VARCHAR2(255),
     FinalTimestamp TIMESTAMP,
     FinalGrade VARCHAR2(5), --used a varchar in case of any oddities resulting in grades that are not char, 5 should hold pass, fail, percentages, and point values up to 99999.
     SupervisorApproval CHAR check (SupervisorApproval in (0,1, NULL)),--a null value represents not having been approved or disapproved yet, char is necessary because oracle didn't feel like supporting booleans
@@ -122,6 +164,9 @@ FOREIGN KEY (GradingFormat_ID) REFERENCES GRADINGFORMAT (FORMAT_ID)  ;
 
 ALTER TABLE Request ADD CONSTRAINT FK_EventType_ID
 FOREIGN KEY (EventType_ID) REFERENCES EVENTTYPE (Type_ID)  ;
+
+ALTER TABLE Request ADD CONSTRAINT FK_Attachment_ID
+FOREIGN KEY (Attachment_ID) REFERENCES ATTACHMENT (ATTACHMENT_ID)  ;
 
 CREATE SEQUENCE req_seq START WITH 1 CACHE 20;
 CREATE OR REPLACE TRIGGER req_keys 
@@ -144,5 +189,23 @@ BEGIN
   FROM   dual;
 END;
 /
+
+--add data for reference tables that is not expected to change under normal circumstances
+INSERT INTO GRADINGFORMAT (FORMAT_ID, FormatName, PassingGrade) VALUES (1, 'PASS/FAIL', 'PASS');
+INSERT INTO GRADINGFORMAT (FORMAT_ID, FormatName, PassingGrade) VALUES (2, 'A/B/C/D/F D PASS', 'D');
+INSERT INTO GRADINGFORMAT (FORMAT_ID, FormatName, PassingGrade) VALUES (3, 'A/B/C/D/F C PASS', 'C');
+INSERT INTO GRADINGFORMAT (FORMAT_ID, FormatName, PassingGrade) VALUES (4, 'OTHER', NULL);
+
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (1, 'University Course', 80);
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (2, 'Seminar', 60);
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (3, 'Certification Preparation Class', 75);
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (4, 'Certification', 100);
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (5, 'Technical Training', 90);
+INSERT INTO EVENTTYPE (Type_ID, TypeName, PercentReimbursement) VALUES (6, 'Other', 30);
+
+INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (1, 'Non-approving employee');
+INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (2, 'Manager');
+INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (3, 'Department Head');
+INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (4, 'Benefits Coordinator');
 
 commit;
