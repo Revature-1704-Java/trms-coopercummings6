@@ -116,7 +116,7 @@ END;
 
 CREATE TABLE ATTACHMENT
 (
-    Attachement_ID NUMBER NOT NULL,
+    Attachment_ID NUMBER NOT NULL,
     AttachmentPath VARCHAR2(127),
     CONSTRAINT PK_Attachment_ID PRIMARY KEY (Attachment_ID)
 );
@@ -143,7 +143,7 @@ CREATE TABLE REQUEST
     Description VARCHAR2(2047),
     Cost NUMBER NOT NULL,
     WorkTimeMissed NUMBER NOT NULL,
-    Attachment_ID VARCHAR2(255),
+    Attachment_ID NUMBER,
     FinalTimestamp TIMESTAMP,
     FinalGrade VARCHAR2(5), --used a varchar in case of any oddities resulting in grades that are not char, 5 should hold pass, fail, percentages, and point values up to 99999.
     SupervisorApproval CHAR check (SupervisorApproval in (0,1, NULL)),--a null value represents not having been approved or disapproved yet, char is necessary because oracle didn't feel like supporting booleans
@@ -207,5 +207,7 @@ INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (1, 'Non-ap
 INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (2, 'Manager');
 INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (3, 'Department Head');
 INSERT INTO EMPLOYEETYPE (EmployeeType_ID, EmployeeTypeTitle) VALUES (4, 'Benefits Coordinator');
+
+--sample data for testing purposes
 
 commit;
