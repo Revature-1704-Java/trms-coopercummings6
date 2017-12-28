@@ -1,3 +1,4 @@
+package com.revature.trms;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +20,9 @@ public class RequestForm implements Serializable
 	String attachmentPath;
 	Date finalDate;
 	String finalGrade;
-	boolean SupervisorApproval;
+	Boolean SupervisorApproval;
+	Boolean depHeadApproval;
+	Boolean bCoordinatorApproval;
 	String denialReason;
 	public String getDenialReason() {
 		return denialReason;
@@ -27,9 +30,6 @@ public class RequestForm implements Serializable
 	public void setDenialReason(String denialReason) {
 		this.denialReason = denialReason;
 	}
-	boolean depHeadApproval;
-	boolean bCoordinatorApproval;
-	
 	public int getRequestID() {
 		return requestID;
 	}
@@ -102,19 +102,19 @@ public class RequestForm implements Serializable
 	public void setFinalGrade(String finalGrade) {
 		this.finalGrade = finalGrade;
 	}
-	public boolean isSupervisorApproval() {
+	public Boolean isSupervisorApproval() {
 		return SupervisorApproval;
 	}
 	public void setSupervisorApproval(boolean supervisorApproval) {
 		SupervisorApproval = supervisorApproval;
 	}
-	public boolean isDepHeadApproval() {
+	public Boolean isDepHeadApproval() {
 		return depHeadApproval;
 	}
 	public void setDepHeadApproval(boolean depHeadApproval) {
 		this.depHeadApproval = depHeadApproval;
 	}
-	public boolean isbCoordinatorApproval() {
+	public Boolean isbCoordinatorApproval() {
 		return bCoordinatorApproval;
 	}
 	public void setbCoordinatorApproval(boolean bCoordinatorApproval) {

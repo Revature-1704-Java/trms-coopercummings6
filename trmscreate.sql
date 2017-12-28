@@ -136,8 +136,9 @@ CREATE TABLE ATTACHMENT
     CONSTRAINT PK_Attachment_ID PRIMARY KEY (Attachment_ID)
 );
 CREATE SEQUENCE att_seq START WITH 1;
+DROP TRIGGER att_keys;
 CREATE OR REPLACE TRIGGER att_keys 
-BEFORE INSERT ON LOCATION
+BEFORE INSERT ON ATTACHMENT
 FOR EACH ROW
 BEGIN
   SELECT att_seq.NEXTVAL
@@ -235,6 +236,10 @@ UPDATE EMPLOYEE SET SUPERVISORID = 1, DEPHEADID = 2, BCOORDINATORID = 1 WHERE em
 UPDATE EMPLOYEE SET SUPERVISORID = 2, DEPHEADID = 2, BCOORDINATORID = 1 WHERE employee.Employee_ID = (SELECT MIN(EMPLOYEE_ID) FROM EMPLOYEE)+2;
 UPDATE EMPLOYEE SET SUPERVISORID = 2, DEPHEADID = 2, BCOORDINATORID = 1 WHERE employee.Employee_ID = (SELECT MIN(EMPLOYEE_ID) FROM EMPLOYEE)+3;
 commit;
+
+INSERT INTO LOCATION (Location_ID, Location_Name) VALUES (1, 'A State University Campus');
+INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID, GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID) VALUES (1, 2, SYSTIMESTAMP, 1, 1, 1, '', 100, 1, NULL);
+INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID, GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID, FINALGRADE) VALUES (2, 2, SYSTIMESTAMP, 1, 1, 1, '', 100, 1, NULL, 'PASS');
 
 INSERT INTO employee (Employee_ID,EmployeeName,ClaimsAmountRemaining,email,Password,SupervisorID,DepHeadID,BCoordinatorID,EmployeeType_ID) VALUES (5,'Vance Andrews',1000,'quam.a@MaurisnullaInteger.org','TDI80REC0IX',4,2,1,1);
 INSERT INTO employee (Employee_ID,EmployeeName,ClaimsAmountRemaining,email,Password,SupervisorID,DepHeadID,BCoordinatorID,EmployeeType_ID) VALUES (6,'Velma Stewart',1000,'adipiscing@egestasSed.ca','PZV83WJF1OM',4,2,1,1);

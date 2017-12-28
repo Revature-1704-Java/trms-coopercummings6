@@ -8,3 +8,6 @@ junit testing
 documentation or logging if possible
 maven project
 documentation
+servlets
+html/css/js
+AJAX
