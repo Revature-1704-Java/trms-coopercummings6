@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +26,7 @@ public class RequestHandler
 	}
 	
 	//methods to implement
-	
-	//submit a form
-	//update a form
+	//update a form //TODO implement this
 	
 	/*
 	 * Submit a RequestForm object to the database. The following fields must be initialized for this to work:
@@ -37,17 +36,74 @@ public class RequestHandler
 	 * @param formToSubmit a RequestForm object with the above fields initialized. Other fields will be ignored because
 	 * they should not be used on a new submission or are not needed.
 	 */
-	//public void submitNewReimbursementRequest(RequestForm formToSubmit)
-	//{
-	//	//check that required fields are initialized
-	//	if(formToSubmit.getRequesterID() != 0 && formToSubmit.getDateSubmitted() != null
-	//			&& formToSubmit.getLocation() != null && formToSubmit.getGradingFormat() != null
-	//			&& formToSubmit.getEventType() != null && formToSubmit.getCost() != 0.0d
-	//			&& formToSubmit.getWorkTimeMissed() != 0.0d)
-	//	{
-	//		//submit the form
-	//	}
-	//}
+	
+	public void submitNewReimbursementRequest(RequestForm formToSubmit)
+	{
+		//check that required fields are initialized
+		if(formToSubmit.getRequesterID() != 0 && formToSubmit.getDateSubmitted() != null
+				&& formToSubmit.getLocation() != null && formToSubmit.getGradingFormat() != null
+				&& formToSubmit.getEventType() != null && formToSubmit.getCost() != 0.0d
+				&& formToSubmit.getWorkTimeMissed() != 0.0d)
+		{
+			//submit the form
+			
+			PreparedStatement pStatement = null;
+
+			try(Connection connection = ConnectionUtil.getConnection())
+			{
+				//add location if it does not already exist
+				String sql = "INSERT INTO LOCATION (Location_ID, Location_Name) SELECT 0, ? FROM DUAL\r\n" + //triggers will replace the 0 with the correct ID
+						"WHERE NOT EXISTS (\r\n" + 
+						"SELECT NULL FROM Location where Location.Location_Name = ?\r\n" + 
+						")";
+				pStatement = connection.prepareStatement(sql);
+				pStatement.setString(1, formToSubmit.getLocation());
+				pStatement.executeUpdate();
+				
+				//Insert attachment path, it should be unique, so an insertion will always be necessary
+				if(formToSubmit.getAttachmentPath() != null)
+				{
+					sql = "INSERT INTO ATTACHMENT (Attachment_ID, AttachmentPath) Values (0, ?)";
+					pStatement.setString(1, formToSubmit.getAttachmentPath());
+					pStatement.executeUpdate();
+				}
+				//add row to request table
+				sql = "INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID,"
+						+ " GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID)"
+						+ " VALUES (0, ?, ?, (SELECT Location_ID FROM LOCATION WHERE Location_Name = ?), "
+						+ "(SELECT * FROM GradingFormat WHERE FormatName = ?), (SELECT Type_ID FROM EVENTTYPE WHERE TYPENAME = ?),"
+						+ " ?, ?, ?, (SELECT Attachment_ID FROM ATTACHMENT WHERE AttachmentPath = ?));";
+				pStatement.setInt(1, formToSubmit.getRequesterID());
+				pStatement.setTimestamp(2, new Timestamp(formToSubmit.getDateSubmitted().getTime()));
+				pStatement.setString(3, formToSubmit.getLocation());
+				pStatement.setString(4, formToSubmit.getGradingFormat());
+				pStatement.setString(5, formToSubmit.getEventType());
+				pStatement.setString(6, formToSubmit.getDescription());
+				pStatement.setDouble(7, formToSubmit.getCost());
+				pStatement.setDouble(8, formToSubmit.getWorkTimeMissed());
+				pStatement.setString(9, formToSubmit.getAttachmentPath());
+				pStatement.executeUpdate();
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			finally
+			{
+				if(pStatement != null)
+				{
+					try
+					{
+						pStatement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
 	
 	/*
 	 * Get forms for employee to approve at benefits coordinator level (they may fulfill multiple roles)
