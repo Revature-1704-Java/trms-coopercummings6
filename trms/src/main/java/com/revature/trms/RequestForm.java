@@ -1,6 +1,6 @@
 package com.revature.trms;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class RequestForm implements Serializable
 {
@@ -10,15 +10,15 @@ public class RequestForm implements Serializable
 	private static final long serialVersionUID = -5475718354903135081L;
 	int requestID;
 	int requesterID;
-	Date dateSubmitted;
+	Timestamp dateSubmitted;
 	String location;
 	String gradingFormat;
 	String eventType;
 	String description;
-	double cost;
-	double workTimeMissed;
+	double cost = -1;
+	double workTimeMissed = -1;
 	String attachmentPath;
-	Date finalDate;
+	Timestamp finalDate;
 	String finalGrade;
 	Boolean SupervisorApproval;
 	Boolean depHeadApproval;
@@ -42,10 +42,10 @@ public class RequestForm implements Serializable
 	public void setRequesterID(int requesterID) {
 		this.requesterID = requesterID;
 	}
-	public Date getDateSubmitted() {
+	public Timestamp getDateSubmitted() {
 		return dateSubmitted;
 	}
-	public void setDateSubmitted(Date dateSubmitted) {
+	public void setDateSubmitted(Timestamp dateSubmitted) {
 		this.dateSubmitted = dateSubmitted;
 	}
 	public String getLocation() {
@@ -90,10 +90,10 @@ public class RequestForm implements Serializable
 	public void setAttachmentPath(String attachmentPath) {
 		this.attachmentPath = attachmentPath;
 	}
-	public Date getFinalDate() {
+	public Timestamp getFinalDate() {
 		return finalDate;
 	}
-	public void setFinalDate(Date finalDate) {
+	public void setFinalDate(Timestamp finalDate) {
 		this.finalDate = finalDate;
 	}
 	public String getFinalGrade() {

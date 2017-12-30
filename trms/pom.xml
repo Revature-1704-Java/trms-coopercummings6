@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.revature</groupId>
-  <artifactId>trms</artifactId>
+  <artifactId>trmsBackend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 
-  <name>trms</name>
+  <name>trmsBackend</name>
   <url>http://maven.apache.org</url>
 
   <properties>

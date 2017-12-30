@@ -31,6 +31,7 @@ public class ConnectionUtilTest
 	public void noExceptionsThrownIfConnectionIsUsed()
 	{
 		String sql = "Select * from employee";
+		@SuppressWarnings("unused")
 		PreparedStatement pStatement = null;
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			pStatement = connection.prepareStatement(sql);

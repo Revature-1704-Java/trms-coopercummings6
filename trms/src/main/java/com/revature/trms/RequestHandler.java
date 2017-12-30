@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,20 +29,19 @@ public class RequestHandler
 	
 	/*
 	 * Submit a RequestForm object to the database. The following fields must be initialized for this to work:
-	 * requesterID, dateSubmitted, location, gradingFormat, eventType, cost, workTimeMissed, and description and 
+	 * requesterID, location, gradingFormat, eventType, cost, workTimeMissed, and description and 
 	 * attachmentPath should be initialized if applicable. The method will not add the form if the required fields are not
 	 * initialized.
 	 * @param formToSubmit a RequestForm object with the above fields initialized. Other fields will be ignored because
 	 * they should not be used on a new submission or are not needed.
 	 */
 	
-	public void submitNewReimbursementRequest(RequestForm formToSubmit)
+	public void submitNewReimbursementRequest(RequestForm formToSubmit) throws IllegalArgumentException
 	{
 		//check that required fields are initialized
-		if(formToSubmit.getRequesterID() != 0 && formToSubmit.getDateSubmitted() != null
-				&& formToSubmit.getLocation() != null && formToSubmit.getGradingFormat() != null
-				&& formToSubmit.getEventType() != null && formToSubmit.getCost() != 0.0d
-				&& formToSubmit.getWorkTimeMissed() != 0.0d)
+		if(formToSubmit.getRequesterID() != 0 && formToSubmit.getLocation() != null 
+				&& formToSubmit.getGradingFormat() != null && formToSubmit.getEventType() != null 
+				&& formToSubmit.getCost() != -1 && formToSubmit.getWorkTimeMissed() != -1)
 		{
 			//submit the form
 			
@@ -52,12 +50,10 @@ public class RequestHandler
 			try(Connection connection = ConnectionUtil.getConnection())
 			{
 				//add location if it does not already exist
-				String sql = "INSERT INTO LOCATION (Location_ID, Location_Name) SELECT 0, ? FROM DUAL\r\n" + //triggers will replace the 0 with the correct ID
-						"WHERE NOT EXISTS (\r\n" + 
-						"SELECT NULL FROM Location where Location.Location_Name = ?\r\n" + 
-						")";
+				String sql = "INSERT INTO LOCATION (Location_Name) SELECT ? FROM DUAL WHERE NOT EXISTS (SELECT NULL FROM Location where Location.Location_Name = ?)";
 				pStatement = connection.prepareStatement(sql);
 				pStatement.setString(1, formToSubmit.getLocation());
+				pStatement.setString(2, formToSubmit.getLocation());
 				pStatement.executeUpdate();
 				
 				//Insert attachment path, it should be unique, so an insertion will always be necessary
@@ -67,21 +63,29 @@ public class RequestHandler
 					pStatement.setString(1, formToSubmit.getAttachmentPath());
 					pStatement.executeUpdate();
 				}
+				
 				//add row to request table
-				sql = "INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID,"
-						+ " GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID)"
-						+ " VALUES (0, ?, ?, (SELECT Location_ID FROM LOCATION WHERE Location_Name = ?), "
-						+ "(SELECT * FROM GradingFormat WHERE FormatName = ?), (SELECT Type_ID FROM EVENTTYPE WHERE TYPENAME = ?),"
-						+ " ?, ?, ?, (SELECT Attachment_ID FROM ATTACHMENT WHERE AttachmentPath = ?));";
+				StringBuilder sqlquery = new StringBuilder();
+				sqlquery.append("INSERT INTO REQUEST (Requester_ID, EventLocation_ID,");
+				sqlquery.append("GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID)");
+				sqlquery.append(" VALUES (?, (SELECT Location_ID FROM LOCATION WHERE Location_Name = ?), ");
+				sqlquery.append("(SELECT Format_ID FROM GradingFormat WHERE FormatName = ?), (SELECT Type_ID FROM EVENTTYPE WHERE TYPENAME = ?),");
+				sqlquery.append(" ?, ?, ?, (SELECT MAX(Attachment_ID) FROM Attachment WHERE AttachmentPath = ?))");
+				pStatement = connection.prepareStatement(sqlquery.toString());
 				pStatement.setInt(1, formToSubmit.getRequesterID());
-				pStatement.setTimestamp(2, new Timestamp(formToSubmit.getDateSubmitted().getTime()));
-				pStatement.setString(3, formToSubmit.getLocation());
-				pStatement.setString(4, formToSubmit.getGradingFormat());
-				pStatement.setString(5, formToSubmit.getEventType());
-				pStatement.setString(6, formToSubmit.getDescription());
-				pStatement.setDouble(7, formToSubmit.getCost());
-				pStatement.setDouble(8, formToSubmit.getWorkTimeMissed());
-				pStatement.setString(9, formToSubmit.getAttachmentPath());
+				pStatement.setString(2, formToSubmit.getLocation());
+				pStatement.setString(3, formToSubmit.getGradingFormat());
+				pStatement.setString(4, formToSubmit.getEventType());
+				if(formToSubmit.getDescription() != null)
+					pStatement.setString(5, formToSubmit.getDescription());
+				else
+					pStatement.setNull(5, java.sql.Types.VARCHAR);
+				pStatement.setDouble(6, formToSubmit.getCost());
+				pStatement.setDouble(7, formToSubmit.getWorkTimeMissed());
+				if(formToSubmit.getAttachmentPath() != null)
+					pStatement.setString(8, formToSubmit.getAttachmentPath());
+				else
+					pStatement.setNull(8, java.sql.Types.VARCHAR);
 				pStatement.executeUpdate();
 
 			}
@@ -102,6 +106,10 @@ public class RequestHandler
 					}
 				}
 			}
+		}
+		else
+		{
+			throw new IllegalArgumentException();
 		}
 	}
 	
@@ -128,7 +136,7 @@ public class RequestHandler
 			while(rSet.next())
 			{
 				RequestForm temp = new RequestForm();
-				temp.setFinalDate(rSet.getDate("FinalTimestamp"));
+				temp.setFinalDate(rSet.getTimestamp("FinalTimestamp"));
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
@@ -140,7 +148,7 @@ public class RequestHandler
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
 				temp.setDenialReason(rSet.getString("DenialReason"));
-				temp.setDateSubmitted(rSet.getDate("DateTimeSubmitted"));
+				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
@@ -196,7 +204,7 @@ public class RequestHandler
 			while(rSet.next())
 			{
 				RequestForm temp = new RequestForm();
-				temp.setFinalDate(rSet.getDate("FinalTimestamp"));
+				temp.setFinalDate(rSet.getTimestamp("FinalTimestamp"));
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
@@ -208,7 +216,7 @@ public class RequestHandler
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
 				temp.setDenialReason(rSet.getString("DenialReason"));
-				temp.setDateSubmitted(rSet.getDate("DateTimeSubmitted"));
+				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
@@ -264,7 +272,7 @@ public class RequestHandler
 			while(rSet.next())
 			{
 				RequestForm temp = new RequestForm();
-				temp.setFinalDate(rSet.getDate("FinalTimestamp"));
+				temp.setFinalDate(rSet.getTimestamp("FinalTimestamp"));
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
@@ -276,7 +284,7 @@ public class RequestHandler
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
 				temp.setDenialReason(rSet.getString("DenialReason"));
-				temp.setDateSubmitted(rSet.getDate("DateTimeSubmitted"));
+				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
@@ -332,7 +340,7 @@ public class RequestHandler
 			while(rSet.next())
 			{
 				RequestForm temp = new RequestForm();
-				temp.setFinalDate(rSet.getDate("FinalTimestamp"));
+				temp.setFinalDate(rSet.getTimestamp("FinalTimestamp"));
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
@@ -344,7 +352,7 @@ public class RequestHandler
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
 				temp.setDenialReason(rSet.getString("DenialReason"));
-				temp.setDateSubmitted(rSet.getDate("DateTimeSubmitted"));
+				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
@@ -411,7 +419,7 @@ public class RequestHandler
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
 				temp.setDenialReason(rSet.getString("DenialReason"));
-				temp.setDateSubmitted(rSet.getDate("DateTimeSubmitted"));
+				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
