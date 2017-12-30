@@ -25,7 +25,68 @@ public class RequestHandler
 	}
 	
 	//methods to implement
-	//update a form //TODO implement this
+	//update a form 
+	/*
+	 * Update an existing request form to add finalgrade, supervisorapproval, depheadapproval, bcoordinatorapproval, or denialreason.
+	 * only the fields needing to be updated should be changed.
+	 * @param formForUpdate a requestform object which has had the required changes made to it. This should be a form pulled from the
+	 * database with only the needed fields altered.
+	 */
+	public void updateRequest(RequestForm formForUpdate) throws IllegalArgumentException
+	{
+		if (formForUpdate.getRequestID() == 0)//0 is default value for the field, IDs start at 1, cannot update a form that does not exist
+		{
+			throw new IllegalArgumentException();
+		}
+		
+		PreparedStatement pStatement = null;
+		try(Connection connection = ConnectionUtil.getConnection())
+		{
+			String sql = "UPDATE REQUEST SET FINALGRADE = ?, FINALTIMESTAMP = SYSTIMESTAMP, SupervisorApproval = ?, DepHeadApproval = ?,"
+					+ " BCoordinatorApproval = ?, DenialReason = ? WHERE Request_ID = ?";
+			pStatement = connection.prepareStatement(sql);
+			if(formForUpdate.getFinalGrade() != null)
+				pStatement.setString(1, formForUpdate.getFinalGrade());
+			else
+				pStatement.setNull(1, java.sql.Types.VARCHAR);
+			if(formForUpdate.isSupervisorApproval() != null)
+				pStatement.setBoolean(2, formForUpdate.isSupervisorApproval());
+			else
+				pStatement.setNull(2, java.sql.Types.CHAR);
+			if(formForUpdate.isDepHeadApproval() != null)
+				pStatement.setBoolean(3, formForUpdate.isDepHeadApproval());
+			else
+				pStatement.setNull(3, java.sql.Types.CHAR);
+			if(formForUpdate.isbCoordinatorApproval() != null)
+				pStatement.setBoolean(4, formForUpdate.isbCoordinatorApproval());
+			else
+				pStatement.setNull(1, java.sql.Types.CHAR);
+			if(formForUpdate.getDenialReason() != null)
+				pStatement.setString(5, formForUpdate.getDenialReason());
+			else
+				pStatement.setNull(5, java.sql.Types.VARCHAR);
+			pStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(pStatement != null)
+			{
+				try
+				{
+					pStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+	}
 	
 	/*
 	 * Submit a RequestForm object to the database. The following fields must be initialized for this to work:
@@ -71,6 +132,7 @@ public class RequestHandler
 				sqlquery.append(" VALUES (?, (SELECT Location_ID FROM LOCATION WHERE Location_Name = ?), ");
 				sqlquery.append("(SELECT Format_ID FROM GradingFormat WHERE FormatName = ?), (SELECT Type_ID FROM EVENTTYPE WHERE TYPENAME = ?),");
 				sqlquery.append(" ?, ?, ?, (SELECT MAX(Attachment_ID) FROM Attachment WHERE AttachmentPath = ?))");
+				pStatement.close();
 				pStatement = connection.prepareStatement(sqlquery.toString());
 				pStatement.setInt(1, formToSubmit.getRequesterID());
 				pStatement.setString(2, formToSubmit.getLocation());
@@ -87,7 +149,6 @@ public class RequestHandler
 				else
 					pStatement.setNull(8, java.sql.Types.VARCHAR);
 				pStatement.executeUpdate();
-
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
@@ -140,6 +201,8 @@ public class RequestHandler
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
+				if(rSet.wasNull())
+					temp.setSupervisorApproval(null);
 				temp.setRequestID(rSet.getInt("Request_ID"));
 				temp.setRequesterID(rSet.getInt("Requester_ID"));
 				temp.setLocation(rSet.getString("Location_Name"));
@@ -147,10 +210,14 @@ public class RequestHandler
 				temp.setEventType(rSet.getString("TypeName"));
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
+				if(rSet.wasNull())
+					temp.setDepHeadApproval(null);
 				temp.setDenialReason(rSet.getString("DenialReason"));
 				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
+				if(rSet.wasNull())
+					temp.setbCoordinatorApproval(null);
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
 				forms.add(temp);
 			}
@@ -208,6 +275,8 @@ public class RequestHandler
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
+				if(rSet.wasNull())
+					temp.setSupervisorApproval(null);
 				temp.setRequestID(rSet.getInt("Request_ID"));
 				temp.setRequesterID(rSet.getInt("Requester_ID"));
 				temp.setLocation(rSet.getString("Location_Name"));
@@ -215,10 +284,14 @@ public class RequestHandler
 				temp.setEventType(rSet.getString("TypeName"));
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
+				if(rSet.wasNull())
+					temp.setDepHeadApproval(null);
 				temp.setDenialReason(rSet.getString("DenialReason"));
 				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
+				if(rSet.wasNull())
+					temp.setbCoordinatorApproval(null);
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
 				forms.add(temp);
 			}
@@ -276,6 +349,8 @@ public class RequestHandler
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
+				if(rSet.wasNull())
+					temp.setSupervisorApproval(null);
 				temp.setRequestID(rSet.getInt("Request_ID"));
 				temp.setRequesterID(rSet.getInt("Requester_ID"));
 				temp.setLocation(rSet.getString("Location_Name"));
@@ -283,10 +358,14 @@ public class RequestHandler
 				temp.setEventType(rSet.getString("TypeName"));
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
+				if(rSet.wasNull())
+					temp.setDepHeadApproval(null);
 				temp.setDenialReason(rSet.getString("DenialReason"));
 				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
+				if(rSet.wasNull())
+					temp.setbCoordinatorApproval(null);
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
 				forms.add(temp);
 			}
@@ -344,6 +423,8 @@ public class RequestHandler
 				temp.setFinalGrade(rSet.getString("FinalGrade"));
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
+				if(rSet.wasNull())
+					temp.setSupervisorApproval(null);
 				temp.setRequestID(rSet.getInt("Request_ID"));
 				temp.setRequesterID(TargetID);
 				temp.setLocation(rSet.getString("Location_Name"));
@@ -351,10 +432,14 @@ public class RequestHandler
 				temp.setEventType(rSet.getString("TypeName"));
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
+				if(rSet.wasNull())
+					temp.setDepHeadApproval(null);
 				temp.setDenialReason(rSet.getString("DenialReason"));
 				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
+				if(rSet.wasNull())
+					temp.setbCoordinatorApproval(null);
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
 				forms.add(temp);
 			}
@@ -411,6 +496,8 @@ public class RequestHandler
 				RequestForm temp = new RequestForm();
 				temp.setWorkTimeMissed(rSet.getDouble("WorkTimeMissed"));
 				temp.setSupervisorApproval(rSet.getBoolean("SupervisorApproval"));
+				if(rSet.wasNull())
+					temp.setSupervisorApproval(null);
 				temp.setRequestID(rSet.getInt("Request_ID"));
 				temp.setRequesterID(TargetID);
 				temp.setLocation(rSet.getString("Location_Name"));
@@ -418,10 +505,14 @@ public class RequestHandler
 				temp.setEventType(rSet.getString("TypeName"));
 				temp.setDescription(rSet.getString("Description"));
 				temp.setDepHeadApproval(rSet.getBoolean("DepHeadApproval"));
+				if(rSet.wasNull())
+					temp.setDepHeadApproval(null);
 				temp.setDenialReason(rSet.getString("DenialReason"));
 				temp.setDateSubmitted(rSet.getTimestamp("DateTimeSubmitted"));
 				temp.setCost(rSet.getDouble("Cost"));
 				temp.setbCoordinatorApproval(rSet.getBoolean("BCoordinatorApproval"));
+				if(rSet.wasNull())
+					temp.setbCoordinatorApproval(null);
 				temp.setAttachmentPath(rSet.getString("AttachmentPath"));
 				forms.add(temp);
 			}

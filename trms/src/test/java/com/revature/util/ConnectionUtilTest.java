@@ -19,10 +19,8 @@ public class ConnectionUtilTest
 			Connection connection = ConnectionUtil.getConnection();
 			assertTrue(connection instanceof Connection);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -36,7 +34,6 @@ public class ConnectionUtilTest
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			pStatement = connection.prepareStatement(sql);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}//connection should be set up properly if its methods execute
 	}

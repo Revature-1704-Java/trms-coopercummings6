@@ -105,19 +105,19 @@ public class RequestForm implements Serializable
 	public Boolean isSupervisorApproval() {
 		return SupervisorApproval;
 	}
-	public void setSupervisorApproval(boolean supervisorApproval) {
+	public void setSupervisorApproval(Boolean supervisorApproval) {
 		SupervisorApproval = supervisorApproval;
 	}
 	public Boolean isDepHeadApproval() {
 		return depHeadApproval;
 	}
-	public void setDepHeadApproval(boolean depHeadApproval) {
+	public void setDepHeadApproval(Boolean depHeadApproval) {
 		this.depHeadApproval = depHeadApproval;
 	}
 	public Boolean isbCoordinatorApproval() {
 		return bCoordinatorApproval;
 	}
-	public void setbCoordinatorApproval(boolean bCoordinatorApproval) {
+	public void setbCoordinatorApproval(Boolean bCoordinatorApproval) {
 		this.bCoordinatorApproval = bCoordinatorApproval;
 	}
 }
