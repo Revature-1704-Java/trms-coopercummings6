@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.text.Normalizer.Form;
+import java.util.FormatFlagsConversionMismatchException;
 import java.util.List;
 
 import org.junit.Test;
@@ -81,10 +83,10 @@ public class RequestHandlerTest
 		assertTrue(testList.isEmpty());
 	}
 	@Test 
-	public void getCompletedFormsShouldNotReturnFormsForEmployeeWithNoCompleteForms()
+	public void getCompletedFormsShouldNotReturnFormsForEmployeeWithNoIncompleteForms()
 	{
 		RequestHandler rHandler = RequestHandler.getRequestHandler();
-		List<RequestForm> testList = rHandler.getCompletedForms(1);
+		List<RequestForm> testList = rHandler.getCompletedForms(3);
 		assertTrue(testList.isEmpty());
 	}
 	@Test 
@@ -181,4 +183,22 @@ public class RequestHandlerTest
 		List<RequestForm> formsafterattemptedinsert = rHandler.getFormsForCompletion(1);
 		assertTrue(initialForms.size() < formsafterattemptedinsert.size());//there should be one more form after the insert
 	}*/
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void updateRequestShouldThrowExceptionIfPassedFormWithoutID()
+	{
+		RequestHandler rHandler = RequestHandler.getRequestHandler();
+		RequestForm form = new RequestForm();
+		rHandler.updateRequest(form);
+	}
+	
+	@Test
+	public void updateRequestShouldUpdateDatabase()// manual checking shows this behaves as expected, not sure how to write as a junit tests
+	{
+		RequestHandler rHandler = RequestHandler.getRequestHandler();
+		RequestForm form = new RequestForm();		//should use forms pulled from the database with other requestHandler methods in normal use, but that leaves more things to break in testing
+		form.setRequestID(9);
+		form.setFinalGrade("PASS");
+		rHandler.updateRequest(form);
+	}
 }

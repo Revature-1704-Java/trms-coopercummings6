@@ -60,11 +60,12 @@ public class RequestHandler
 			if(formForUpdate.isbCoordinatorApproval() != null)
 				pStatement.setBoolean(4, formForUpdate.isbCoordinatorApproval());
 			else
-				pStatement.setNull(1, java.sql.Types.CHAR);
+				pStatement.setNull(4, java.sql.Types.CHAR);
 			if(formForUpdate.getDenialReason() != null)
 				pStatement.setString(5, formForUpdate.getDenialReason());
 			else
 				pStatement.setNull(5, java.sql.Types.VARCHAR);
+			pStatement.setInt(6, formForUpdate.getRequestID());
 			pStatement.executeUpdate();
 			
 		} catch (SQLException e) {
