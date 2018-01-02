@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>com.revature.servlets.LogIn</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReimbursementManager</servlet-name>
+  	<display-name>ReimbursementManager</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.ReimbursementManager</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SubmitForm</servlet-name>
+  	<display-name>SubmitForm</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.SubmitForm</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogIn</servlet-name>
   	<url-pattern>/LogIn</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReimbursementManager</servlet-name>
+  	<url-pattern>/ReimbursementManager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitForm</servlet-name>
+  	<url-pattern>/SubmitForm</url-pattern>
   </servlet-mapping>
 </web-app>
