@@ -134,7 +134,7 @@ public class RequestHandler
 				sqlquery.append("GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID)");
 				sqlquery.append(" VALUES (?, (SELECT Location_ID FROM LOCATION WHERE Location_Name = ?), ");
 				sqlquery.append("(SELECT Format_ID FROM GradingFormat WHERE FormatName = ?), (SELECT Type_ID FROM EVENTTYPE WHERE TYPENAME = ?),");
-				sqlquery.append(" ?, ?, ?, (SELECT MAX(Attachment_ID) FROM Attachment WHERE AttachmentPath = ?))");
+				sqlquery.append(" ?, ?, ?, (SELECT MAX(Attachment_ID) FROM Attachment WHERE AttachmentPath = ?))");//max will return null if there are no rows, the subquery will only have 0 or 1 row because attachmentpath is unique
 				pStatement.close();
 				pStatement = connection.prepareStatement(sqlquery.toString());
 				pStatement.setInt(1, formToSubmit.getRequesterID());
