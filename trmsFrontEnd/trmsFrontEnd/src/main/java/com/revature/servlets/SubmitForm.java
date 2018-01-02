@@ -1,14 +1,13 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.trms.Employee;
 import com.revature.trms.RequestForm;
 import com.revature.trms.RequestHandler;
 
@@ -32,7 +31,7 @@ public class SubmitForm extends HttpServlet {
 		else
 		{
 			RequestForm requestForm = new RequestForm();
-			requestForm.setRequesterID(session.getAttribute("employee").getId());
+			requestForm.setRequesterID(((Employee)session.getAttribute("employee")).getId());
 			requestForm.setLocation(request.getParameter("Location"));
 			requestForm.setGradingFormat(request.getParameter("gradingFormat"));
 			requestForm.setEventType(request.getParameter("eventType"));
