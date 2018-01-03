@@ -37,6 +37,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("		<script src=\"https://code.jquery.com/jquery-3.1.1.slim.min.js\" integrity=\"sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n\" crossorigin=\"anonymous\"></script>");
 			out.println("		<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js\"></script>");
 			out.println("		<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
+			out.println("		<script src=\"ajaxFunctions.js\"></script>");
 			out.println("	</head>");
 			out.println("	<body>");
 			out.println("		<div class=\"container\">");
@@ -165,7 +166,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("				<h1 class=\"display-3\">Complete A Form</h1>");
 			out.println("				<hr class=\"my-4\">");
 			out.println("				<p class=\"lead\">");
-			out.println("					<button class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewForms\">Review Forms</button>");
+			out.println("					<button class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewForms\" onclick=\"loadIncompleteForms()\">Review Forms</button>");
 			out.println("				</p>");
 			out.println("				<!-- Modal -->");
 			out.println("					<div id=\"reviewForms\" class=\"modal fade\" role=\"dialog\">");
@@ -176,7 +177,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("									<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>");
 			out.println("									<h4 class=\"modal-title\">Review Forms</h4>");
 			out.println("								</div>");
-			out.println("								<div class=\"modal-body\">");
+			out.println("								<div class=\"modal-body\" id=\"incompleteFormsDiv\">");
 			out.println("									<p>Some text in the modal.</p>");
 			out.println("								</div>");
 			out.println("								<div class=\"modal-footer\">");
