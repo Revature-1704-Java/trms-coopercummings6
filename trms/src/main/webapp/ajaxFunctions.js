@@ -15,6 +15,9 @@ function loadIncompleteForms()
 				let tr = document.createElement('TR');
 				
 				let td = document.createElement('TD');
+				td.appendChild(document.createTextNode(jsonFormArray[i]["requestID"]));
+				tr.appendChild(td);
+				td = document.createElement('TD');
 				td.appendChild(document.createTextNode(jsonFormArray[i]["dateSubmitted"]));
 				tr.appendChild(td);
 				td = document.createElement('TD');
@@ -36,7 +39,10 @@ function loadIncompleteForms()
 				td.appendChild(document.createTextNode(jsonFormArray[i]["workTimeMissed"]));
 				tr.appendChild(td);
 				td = document.createElement('TD');
-				td.appendChild(document.createTextNode(jsonFormArray[i]["finalGrade"]));
+				let input = document.createElement('INPUT');
+				input.setAttribute("type", "text");
+				input.setAttribute("label", `form${jsonFormArray[i]["requestID"]}grade`)
+				td.appendChild(input);
 				tr.appendChild(td);
 				
 				table.appendChild(tr);
