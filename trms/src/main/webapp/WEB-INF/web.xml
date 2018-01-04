@@ -40,6 +40,18 @@
   	<description></description>
   	<servlet-class>com.revature.servlets.getCompleteForms</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetSupervisorForms</servlet-name>
+  	<display-name>GetSupervisorForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.GetSupervisorForms</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SubmitSupervisorForms</servlet-name>
+  	<display-name>SubmitSupervisorForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.SubmitSupervisorForms</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogIn</servlet-name>
   	<url-pattern>/LogIn</url-pattern>
@@ -63,5 +75,13 @@
   <servlet-mapping>
   	<servlet-name>getCompleteForms</servlet-name>
   	<url-pattern>/getCompleteForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetSupervisorForms</servlet-name>
+  	<url-pattern>/GetSupervisorForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitSupervisorForms</servlet-name>
+  	<url-pattern>/SubmitSupervisorForms</url-pattern>
   </servlet-mapping>
 </web-app>
