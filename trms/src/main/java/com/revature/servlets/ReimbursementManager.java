@@ -60,7 +60,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("								</h4>");
 			out.println("							</div>");
 			out.println("							<!-- Modal Body -->");
-			out.println("							<form class=\"form-horizontal\" method=\"post\" action=\"http://localhost:8080/trmsFrontEnd/SubmitForm\"><div class=\"form-group\">");
+			out.println("							<form class=\"form-horizontal\" method=\"post\" action=\"http://localhost:8080/trms/SubmitForm\"><div class=\"form-group\">");
 			out.println("							<div class=\"modal-body\">");
 			out.println("									<div class=\"form-group\">");
 			out.println("										<label  class=\"col-sm-2 control-label\" for=\"Location\">Location:</label>");

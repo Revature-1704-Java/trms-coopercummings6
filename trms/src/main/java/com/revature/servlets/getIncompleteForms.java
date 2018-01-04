@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.revature.trms.Employee;
 import com.revature.trms.RequestForm;
 import com.revature.trms.RequestHandler;
@@ -39,7 +40,9 @@ public class getIncompleteForms extends HttpServlet {
 		}
 		else
 		{
-			Gson gson = new Gson();
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.serializeNulls();
+			Gson gson = gsonBuilder.create();
 			Employee employee = (Employee)session.getAttribute("employee");
 			RequestHandler rHandler = RequestHandler.getRequestHandler();
 			List<RequestForm> incompleteForms = rHandler.getFormsForCompletion(employee.getId());

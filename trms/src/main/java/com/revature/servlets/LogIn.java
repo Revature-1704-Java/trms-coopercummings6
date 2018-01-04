@@ -25,7 +25,7 @@ public class LogIn extends HttpServlet {
 		if(employee.getPassword().equals(request.getParameter("password")))
 		{
 			session.setAttribute("employee", employee);
-			response.sendRedirect("http://localhost:8080/trmsFrontEnd/ReimbursementManager");
+			response.sendRedirect("http://localhost:8080/trms/ReimbursementManager");
 		} 
 		else 
 		{

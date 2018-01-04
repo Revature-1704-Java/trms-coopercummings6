@@ -41,7 +41,7 @@ public class SubmitForm extends HttpServlet {
 			requestForm.setWorkTimeMissed(Double.parseDouble(request.getParameter("WorkTimeMissed")));
 			RequestHandler requestHandler = RequestHandler.getRequestHandler();
 			requestHandler.submitNewReimbursementRequest(requestForm);
-			response.sendRedirect("http://localhost:8080/trmsFrontEnd/ReimbursementManager");
+			response.sendRedirect("http://localhost:8080/trms/ReimbursementManager");
 		}
 	}
 
