@@ -28,6 +28,12 @@
   	<description>returns JSON containing information needed to display incomplete forms</description>
   	<servlet-class>com.revature.servlets.getIncompleteForms</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SubmitCompletedForms</servlet-name>
+  	<display-name>SubmitCompletedForms</display-name>
+  	<description>submit forms that have had their final grades added</description>
+  	<servlet-class>com.revature.servlets.SubmitCompletedForms</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogIn</servlet-name>
   	<url-pattern>/LogIn</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>getIncompleteForms</servlet-name>
   	<url-pattern>/getIncompleteForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitCompletedForms</servlet-name>
+  	<url-pattern>/SubmitCompletedForms</url-pattern>
   </servlet-mapping>
 </web-app>

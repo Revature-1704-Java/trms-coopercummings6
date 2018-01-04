@@ -161,7 +161,6 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("				</div>");///modal fade
 			out.println("			</div>");///jumbotron
 			out.println("<br>");
-			out.println("<br>");
 			out.println("			<div class=\"jumbotron\">");
 			out.println("				<h1 class=\"display-3\">Complete A Form</h1>");
 			out.println("				<hr class=\"my-4\">");
@@ -177,7 +176,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("									<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>");
 			out.println("									<h4 class=\"modal-title\">Review Forms</h4>");
 			out.println("								</div>");
-			out.println("								<form>");
+			out.println("								<form method=\"post\" action=\"http://localhost:8080/trms/SubmitCompletedForms\">");
 			out.println("									<div class=\"modal-body modal-lg\">");
 			out.println("										<table class=\"table\" id=\"incompleteFormsTable\">");
 			out.println("											<tr>");
@@ -194,7 +193,7 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("										</table>");
 			out.println("									</div>");
 			out.println("									<div class=\"modal-footer modal-lg\">");
-			out.println("										<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>");
+			out.println("										<input type=\"submit\" class=\"btn btn-default\" value=\"Close and Submit\">");
 			out.println("									</div>");
 			out.println("								</form>");
 			out.println("							</div>");// /modal content

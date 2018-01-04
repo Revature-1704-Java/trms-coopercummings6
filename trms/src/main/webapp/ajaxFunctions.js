@@ -7,13 +7,45 @@ function loadIncompleteForms()
 	{
 		if (this.status === 200) 
 		{
-			let jsonFormArray = JSON.parse(xhttp.responseText);
-			let table = document.getElementById("incompleteFormsTable");
-			console.log(jsonFormArray);
-			for(let i = 0; i < jsonFormArray.length; i++) 
+			let jsonFormArray = JSON.parse(xhttp.responseText);//get json from servlet
+			let oldTable = document.getElementById("incompleteFormsTable");//get the old table
+			let newTable = oldTable.cloneNode();//clone it
+			//console.log(jsonFormArray);
+			
+			//manually insert table headers
+			let tr = document.createElement('TR');
+			let th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Request ID"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Date Submitted"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Location"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Grading Format"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Event Type"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Description"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Cost"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Work Time Missed"));
+			tr.appendChild(th);
+			th = document.createElement('TH');
+			th.appendChild(document.createTextNode("Final Grade"));
+			tr.appendChild(th);
+			newTable.appendChild(tr);
+			
+			for(let i = 0; i < jsonFormArray.length; i++) //iterate through json array and output all of the needed fields
 			{
-				let tr = document.createElement('TR');
-				
+				tr = document.createElement('TR');
 				let td = document.createElement('TD');
 				td.appendChild(document.createTextNode(jsonFormArray[i]["requestID"]));
 				tr.appendChild(td);
@@ -41,12 +73,14 @@ function loadIncompleteForms()
 				td = document.createElement('TD');
 				let input = document.createElement('INPUT');
 				input.setAttribute("type", "text");
-				input.setAttribute("label", `form${jsonFormArray[i]["requestID"]}grade`)
+				input.setAttribute("name", `form${jsonFormArray[i]["requestID"]}grade`)
 				td.appendChild(input);
 				tr.appendChild(td);
 				
-				table.appendChild(tr);
+				newTable.appendChild(tr);
 			}
+			let oldParent = oldTable.parentNode;//replace old table with new
+			oldParent.replaceChild(newTable, oldTable);
 		}
 	};
 	xhttp.send();

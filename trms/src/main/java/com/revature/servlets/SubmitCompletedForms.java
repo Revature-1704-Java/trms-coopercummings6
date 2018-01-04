@@ -1,0 +1,51 @@
+package com.revature.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.revature.trms.Employee;
+import com.revature.trms.RequestForm;
+import com.revature.trms.RequestHandler;
+
+public class SubmitCompletedForms extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("recieved update request");
+		HttpSession session = request.getSession();
+		if(session.isNew())
+		{
+			session.invalidate();				//new sessions shouldn't be here, send them to log in
+			response.sendRedirect("index.html");
+		}
+		else
+		{
+			System.out.println("session is valid");
+			Employee employee = (Employee)session.getAttribute("employee");	//get employee from session
+			RequestHandler rHandler = RequestHandler.getRequestHandler();
+			List<RequestForm> formsToUpdate = rHandler.getFormsForCompletion(employee.getId());	//get the employee's forms that need to be completed from database (update method requires a RequestForm Object)
+			System.out.println("retrieved" + formsToUpdate.size() + "forms to update");
+			for(RequestForm form : formsToUpdate)											//loop through the request forms
+			{
+				String grade = request.getParameter("form" + form.getRequestID() + "grade");//get the grade for that request
+				form.setFinalGrade(grade);
+				rHandler.updateRequest(form);												//update request
+			}
+			System.out.println("completed update loop");
+			
+			response.sendRedirect("http://localhost:8080/trms/ReimbursementManager");		//send back to reimbursement manager
+		}
+	}
+
+}
