@@ -289,6 +289,50 @@ public class ReimbursementManager extends HttpServlet {
 				out.println("					</div>");// /modal fade
 				out.println("			</div>");// /jumbotron
 			}
+			if(employee.getEmployeeTypeID() == 3 || employee.getEmployeeTypeID() == 4)
+			{
+				out.println("");
+				out.println("<br>");
+				out.println("			<div class=\"jumbotron\">");
+				out.println("				<h1 class=\"display-3\">Approve at Department Head Level</h1>");
+				out.println("				<hr class=\"my-4\">");
+				out.println("				<p class=\"lead\">");
+				out.println("					<button class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#depHeadApprove\" onclick=\"loadDepHeadForms()\">View Forms</button>");
+				out.println("				</p>");
+				out.println("				<!-- Modal -->");
+				out.println("					<div id=\"depHeadApprove\" class=\"modal fade\" role=\"dialog\">");
+				out.println("						<div class=\"modal-dialog modal-lg\">");
+				out.println("							<!-- Modal content-->");
+				out.println("							<div class=\"modal-content modal-lg\">");
+				out.println("								<div class=\"modal-header modal-lg\">");
+				out.println("									<h4 class=\"modal-title\">Forms for Approval</h4>");
+				out.println("								</div>");
+				out.println("								<form method=\"post\" action=\"http://localhost:8080/trms/SubmitDepHeadForms\">");
+				out.println("									<div class=\"modal-body modal-lg\">");
+				out.println("										<table class=\"table\" id=\"depHeadFormsTable\">");
+				out.println("											<tr>");
+				out.println("												<th scope=\"col\">Request ID</th>");
+				out.println("												<th scope=\"col\">Date Submitted</th>");
+				out.println("												<th scope=\"col\">Location</th>");
+				out.println("												<th scope=\"col\">Grading Format</th>");
+				out.println("												<th scope=\"col\">Event Type</th>");
+				out.println("												<th scope=\"col\">Description</th>");
+				out.println("												<th scope=\"col\">Cost</th>");
+				out.println("												<th scope=\"col\">Work Time Missed</th>");
+				out.println("												<th scope=\"col\">Final Grade</th>");
+				out.println("												<th scope=\"col\">Department Head Approval</th>");
+				out.println("											</tr>");
+				out.println("										</table>");
+				out.println("									</div>");
+				out.println("									<div class=\"modal-footer modal-lg\">");
+				out.println("										<input type=\"submit\" class=\"btn btn-default\" value=\"Close and Submit\">");
+				out.println("									</div>");
+				out.println("								</form>");
+				out.println("							</div>");// /modal content
+				out.println("						</div>");// /modal dialog
+				out.println("					</div>");// /modal fade
+				out.println("			</div>");// /jumbotron
+			}
 			out.println("");
 			out.println("    	</div> <!-- /container -->	");
 			out.println("	</body>");

@@ -13,7 +13,7 @@ import com.revature.trms.Employee;
 import com.revature.trms.RequestForm;
 import com.revature.trms.RequestHandler;
 
-public class SubmitSupervisorForms extends HttpServlet {
+public class SubmitDepHeadForms extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,11 +32,11 @@ public class SubmitSupervisorForms extends HttpServlet {
 			{
 				Employee employee = (Employee)session.getAttribute("employee");	//get employee from session
 				RequestHandler rHandler = RequestHandler.getRequestHandler();
-				List<RequestForm> formsToUpdate = rHandler.getFormsForSupervisorLevelApproval(employee.getId());	//get the employee's forms that need to be completed from database (update method requires a RequestForm Object)
+				List<RequestForm> formsToUpdate = rHandler.getFormsForDepartmentHeadApproval(employee.getId());	//get the employee's forms that need to be completed from database (update method requires a RequestForm Object)
 				for(RequestForm form : formsToUpdate)											//loop through the request forms
 				{
 					String approved = request.getParameter("form" + form.getRequestID() + "approval");//get the grade for that request
-					form.setSupervisorApproval(approved.equalsIgnoreCase("true") ? true : false);			//if approved was selected
+					form.setDepHeadApproval(approved.equalsIgnoreCase("true") ? true : false);			//if approved was selected
 					rHandler.updateRequest(form);												//update request
 				}
 			}

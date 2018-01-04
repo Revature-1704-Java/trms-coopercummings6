@@ -52,6 +52,24 @@
   	<description></description>
   	<servlet-class>com.revature.servlets.SubmitSupervisorForms</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>test</servlet-name>
+  	<display-name>test</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.test</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetDepHeadForms</servlet-name>
+  	<display-name>GetDepHeadForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.GetDepHeadForms</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SubmitDepHeadForms</servlet-name>
+  	<display-name>SubmitDepHeadForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.SubmitDepHeadForms</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogIn</servlet-name>
   	<url-pattern>/LogIn</url-pattern>
@@ -83,5 +101,17 @@
   <servlet-mapping>
   	<servlet-name>SubmitSupervisorForms</servlet-name>
   	<url-pattern>/SubmitSupervisorForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>test</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetDepHeadForms</servlet-name>
+  	<url-pattern>/GetDepHeadForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitDepHeadForms</servlet-name>
+  	<url-pattern>/SubmitDepHeadForms</url-pattern>
   </servlet-mapping>
 </web-app>
