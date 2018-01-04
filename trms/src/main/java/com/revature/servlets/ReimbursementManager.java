@@ -173,7 +173,6 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("							<!-- Modal content-->");
 			out.println("							<div class=\"modal-content modal-lg\">");
 			out.println("								<div class=\"modal-header modal-lg\">");
-			out.println("									<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>");
 			out.println("									<h4 class=\"modal-title\">Review Forms</h4>");
 			out.println("								</div>");
 			out.println("								<form method=\"post\" action=\"http://localhost:8080/trms/SubmitCompletedForms\">");
@@ -202,6 +201,47 @@ public class ReimbursementManager extends HttpServlet {
 			out.println("			</div>");// /jumbotron
 			out.println("");
 			out.println("");
+			out.println("<br>");
+			out.println("			<div class=\"jumbotron\">");
+			out.println("				<h1 class=\"display-3\">View Completed Forms</h1>");
+			out.println("				<hr class=\"my-4\">");
+			out.println("				<p class=\"lead\">");
+			out.println("					<button class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#completedForms\" onclick=\"loadCompleteForms()\">View Forms</button>");
+			out.println("				</p>");
+			out.println("				<!-- Modal -->");
+			out.println("					<div id=\"completedForms\" class=\"modal fade\" role=\"dialog\">");
+			out.println("						<div class=\"modal-dialog modal-lg\">");
+			out.println("							<!-- Modal content-->");
+			out.println("							<div class=\"modal-content modal-lg\">");
+			out.println("								<div class=\"modal-header modal-lg\">");
+			out.println("									<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>");
+			out.println("									<h4 class=\"modal-title\">Completed Forms</h4>");
+			out.println("								</div>");
+			out.println("									<div class=\"modal-body modal-lg\">");
+			out.println("										<table class=\"table\" id=\"completeFormsTable\">");
+			out.println("											<tr>");
+			out.println("												<th scope=\"col\">Request ID</th>");
+			out.println("												<th scope=\"col\">Date Submitted</th>");
+			out.println("												<th scope=\"col\">Location</th>");
+			out.println("												<th scope=\"col\">Grading Format</th>");
+			out.println("												<th scope=\"col\">Event Type</th>");
+			out.println("												<th scope=\"col\">Description</th>");
+			out.println("												<th scope=\"col\">Cost</th>");
+			out.println("												<th scope=\"col\">Work Time Missed</th>");
+			out.println("												<th scope=\"col\">Final Grade</th>");
+			out.println("												<th scope=\"col\">Supervisor Approval</th>");
+			out.println("												<th scope=\"col\">Department Head Approval</th>");
+			out.println("												<th scope=\"col\">Benefits Coordinator Approval</th>");
+			out.println("											</tr>");
+			out.println("										</table>");
+			out.println("									</div>");
+			out.println("									<div class=\"modal-footer modal-lg\">");
+			out.println("										<button class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>");
+			out.println("									</div>");
+			out.println("							</div>");// /modal content
+			out.println("						</div>");// /modal dialog
+			out.println("					</div>");// /modal fade
+			out.println("			</div>");// /jumbotron
 			out.println("");
 			out.println("    	</div> <!-- /container -->	");
 			out.println("	</body>");
