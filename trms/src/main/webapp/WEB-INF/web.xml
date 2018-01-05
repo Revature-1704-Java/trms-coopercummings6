@@ -70,6 +70,18 @@
   	<description></description>
   	<servlet-class>com.revature.servlets.SubmitDepHeadForms</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SubmitbCoordinatorForms</servlet-name>
+  	<display-name>SubmitbCoordinatorForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.SubmitbCoordinatorForms</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetBCoordinatorForms</servlet-name>
+  	<display-name>GetBCoordinatorForms</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.servlets.GetBCoordinatorForms</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogIn</servlet-name>
   	<url-pattern>/LogIn</url-pattern>
@@ -113,5 +125,13 @@
   <servlet-mapping>
   	<servlet-name>SubmitDepHeadForms</servlet-name>
   	<url-pattern>/SubmitDepHeadForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitbCoordinatorForms</servlet-name>
+  	<url-pattern>/SubmitbCoordinatorForms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetBCoordinatorForms</servlet-name>
+  	<url-pattern>/GetBCoordinatorForms</url-pattern>
   </servlet-mapping>
 </web-app>

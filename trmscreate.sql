@@ -238,7 +238,7 @@ UPDATE EMPLOYEE SET SUPERVISORID = 2, DEPHEADID = 2, BCOORDINATORID = 1 WHERE em
 commit;
 
 INSERT INTO LOCATION (Location_ID, Location_Name) VALUES (1, 'A State University Campus');
-INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID, GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID) VALUES (1, 2, SYSTIMESTAMP, 1, 1, 1, '', 100, 1, NULL);
+INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID, GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID) VALUES (1, 2, SYSTIMESTAMP, 1, 1, 1, 'Do Not Approve, unapproved request needed for testing', 100, 1, NULL);
 INSERT INTO REQUEST (Request_ID, Requester_ID, DateTimeSubmitted, EventLocation_ID, GradingFormat_ID, EventType_ID, Description, Cost, WorkTimeMissed, Attachment_ID, FINALGRADE) VALUES (2, 2, SYSTIMESTAMP, 1, 1, 1, '', 100, 1, NULL, 'PASS');
 
 INSERT INTO employee (Employee_ID,EmployeeName,ClaimsAmountRemaining,email,Password,SupervisorID,DepHeadID,BCoordinatorID,EmployeeType_ID) VALUES (5,'Vance Andrews',1000,'quam.a@MaurisnullaInteger.org','TDI80REC0IX',4,2,1,1);
