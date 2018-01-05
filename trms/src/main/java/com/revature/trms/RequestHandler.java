@@ -45,26 +45,32 @@ public class RequestHandler
 			String sql = "UPDATE REQUEST SET FINALGRADE = ?, FINALTIMESTAMP = SYSTIMESTAMP, SupervisorApproval = ?, DepHeadApproval = ?,"
 					+ " BCoordinatorApproval = ?, DenialReason = ? WHERE Request_ID = ?";
 			pStatement = connection.prepareStatement(sql);
+			
 			if(formForUpdate.getFinalGrade() != null)
 				pStatement.setString(1, formForUpdate.getFinalGrade());
 			else
 				pStatement.setNull(1, java.sql.Types.VARCHAR);
+			
 			if(formForUpdate.isSupervisorApproval() != null)
 				pStatement.setBoolean(2, formForUpdate.isSupervisorApproval());
 			else
 				pStatement.setNull(2, java.sql.Types.CHAR);
+			
 			if(formForUpdate.isDepHeadApproval() != null)
 				pStatement.setBoolean(3, formForUpdate.isDepHeadApproval());
 			else
 				pStatement.setNull(3, java.sql.Types.CHAR);
+			
 			if(formForUpdate.isbCoordinatorApproval() != null)
 				pStatement.setBoolean(4, formForUpdate.isbCoordinatorApproval());
 			else
 				pStatement.setNull(4, java.sql.Types.CHAR);
+			
 			if(formForUpdate.getDenialReason() != null)
 				pStatement.setString(5, formForUpdate.getDenialReason());
 			else
 				pStatement.setNull(5, java.sql.Types.VARCHAR);
+			
 			pStatement.setInt(6, formForUpdate.getRequestID());
 			pStatement.executeUpdate();
 			

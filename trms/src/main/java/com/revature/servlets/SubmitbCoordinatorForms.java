@@ -25,7 +25,6 @@ public class SubmitbCoordinatorForms extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		try {
 			if(session.isNew())
 			{
 				session.invalidate();				//new sessions shouldn't be here, send them to log in
@@ -39,13 +38,15 @@ public class SubmitbCoordinatorForms extends HttpServlet {
 				for(RequestForm form : formsToUpdate)											//loop through the request forms
 				{
 					String approved = request.getParameter("form" + form.getRequestID() + "approval");//get the grade for that request
-					form.setbCoordinatorApproval(approved.equalsIgnoreCase("true") ? true : false);			//if approved was selected
-					rHandler.updateRequest(form);												//update request
+					form.setbCoordinatorApproval(approved.equalsIgnoreCase("true"));			//if approved was selected
+					try {
+						rHandler.updateRequest(form);												//update request
+					} catch (NullPointerException e) {
+						// method throws nullpointerexception, but also successfully submits data to database, so just catching the exception and doing nothing.
+					}
 				}
 			}
-		} catch (NullPointerException e) {
-			// method throws nullpointerexception, but also successfully submits data to database, so just catching the exception and doing nothing.
-		}
+
 		response.sendRedirect("http://localhost:8080/trms/ReimbursementManager");		//send back to reimbursement manager
 	}
 

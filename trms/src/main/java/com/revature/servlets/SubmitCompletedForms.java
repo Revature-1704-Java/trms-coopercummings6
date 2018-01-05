@@ -37,7 +37,11 @@ public class SubmitCompletedForms extends HttpServlet {
 			{
 				String grade = request.getParameter("form" + form.getRequestID() + "grade");//get the grade for that request
 				form.setFinalGrade(grade);
-				rHandler.updateRequest(form);												//update request
+				try {
+					rHandler.updateRequest(form); //update request
+				} catch (NullPointerException e) {
+					// don't actually need to do anything
+				}
 			}
 			
 			response.sendRedirect("http://localhost:8080/trms/ReimbursementManager");		//send back to reimbursement manager
